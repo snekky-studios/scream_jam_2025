@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PictureData" load_steps=5 format=3 uid="uid://b055j346okbkt"]
+
+[ext_resource type="Script" uid="uid://daqtg10hq66du" path="res://data/picture_data.gd" id="1_gd1x1"]
+[ext_resource type="Texture2D" uid="uid://dnpnlogtcn8l" path="res://assets/pictures/tubing/tubing_128.png" id="2_8m7pq"]
+[ext_resource type="Texture2D" uid="uid://cvujaii2mm41w" path="res://assets/pictures/tubing/tubing_256.png" id="3_c8wvj"]
+[ext_resource type="Texture2D" uid="uid://qsaornm6c6hy" path="res://assets/pictures/tubing/tubing_256_delay.png" id="4_hmqer"]
+
+[resource]
+script = ExtResource("1_gd1x1")
+texture_128 = ExtResource("2_8m7pq")
+texture_256 = ExtResource("3_c8wvj")
+texture_256_delay = ExtResource("4_hmqer")
+clue_coordinates = Vector2(151, 156)
+start_text = "This picture was damaged extensively by some fluid. Curiously, it does not appear to be water."
+end_text = "A reptilian head. The body is partially submerged."
+metadata/_custom_type_script = "uid://daqtg10hq66du"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PictureData" load_steps=5 format=3 uid="uid://bat8bcxx1i0do"]
+
+[ext_resource type="Script" uid="uid://daqtg10hq66du" path="res://data/picture_data.gd" id="1_8u0ux"]
+[ext_resource type="Texture2D" uid="uid://t0e34sgytu5i" path="res://assets/pictures/forest/forest_128.png" id="2_3yhns"]
+[ext_resource type="Texture2D" uid="uid://uaj8yvhnk61a" path="res://assets/pictures/forest/forest_256.png" id="3_gcpr6"]
+[ext_resource type="Texture2D" uid="uid://cg3a5aqeu014j" path="res://assets/pictures/forest/forest_256_delay.png" id="4_na2d8"]
+
+[resource]
+script = ExtResource("1_8u0ux")
+texture_128 = ExtResource("2_3yhns")
+texture_256 = ExtResource("3_gcpr6")
+texture_256_delay = ExtResource("4_na2d8")
+clue_coordinates = Vector2(170, 110)
+start_text = "Apologies for the picture quality. Even compared to the rest, this was degraded severely during the calamity."
+end_text = "A makeshift gallows. A body of unknown age or gender hangs from it."
+metadata/_custom_type_script = "uid://daqtg10hq66du"

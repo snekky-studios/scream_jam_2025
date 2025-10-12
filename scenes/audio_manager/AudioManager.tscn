@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://jjylx4hqhug4"]
+
+[ext_resource type="Script" uid="uid://c2vpc1d2hd2lv" path="res://scenes/audio_manager/audio_manager.gd" id="1_1qvj8"]
+[ext_resource type="AudioStream" uid="uid://cyfwj2uh7xu2g" path="res://assets/sounds/horror_background.mp3" id="1_cerky"]
+[ext_resource type="AudioStream" uid="uid://dtqgoee3m5u11" path="res://assets/sounds/horror_violins_plucking.wav" id="2_1qvj8"]
+[ext_resource type="AudioStream" uid="uid://bm1co67qrhusy" path="res://assets/sounds/horror_violin_screech.wav" id="3_v7os3"]
+[ext_resource type="AudioStream" uid="uid://waphtiikdx7p" path="res://assets/sounds/horror_piano_c2_d2_e2_f2.wav" id="5_d146j"]
+[ext_resource type="AudioStream" uid="uid://dwke3rt7md7r4" path="res://assets/sounds/horror_pluck.wav" id="6_cvu2i"]
+[ext_resource type="AudioStream" uid="uid://bnp8d6slxxxka" path="res://assets/sounds/horror_string.wav" id="7_1peus"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_1qvj8")
+
+[node name="AudioStreamPlayerMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("1_cerky")
+autoplay = true
+
+[node name="AudioStreamPlayerViolinsPlucking" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_1qvj8")
+
+[node name="AudioStreamPlayerViolinsScreeching" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_v7os3")
+
+[node name="AudioStreamPlayerPiano" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_d146j")
+
+[node name="AudioStreamPlayerPluck" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_cvu2i")
+
+[node name="AudioStreamPlayerString" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_1peus")

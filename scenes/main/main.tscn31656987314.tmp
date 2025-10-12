@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc067o1siovev"]
+
+[ext_resource type="Script" uid="uid://dmwchv8n6ph23" path="res://scenes/main/main.gd" id="1_hyk8p"]
+[ext_resource type="AudioStream" uid="uid://cyfwj2uh7xu2g" path="res://assets/sounds/horror_background.mp3" id="2_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://jjylx4hqhug4" path="res://scenes/audio_manager/AudioManager.tscn" id="2_ow5a4"]
+[ext_resource type="AudioStream" uid="uid://dtqgoee3m5u11" path="res://assets/sounds/horror_violins_plucking.wav" id="3_l3cfh"]
+[ext_resource type="AudioStream" uid="uid://bm1co67qrhusy" path="res://assets/sounds/horror_violin_screech.wav" id="4_l3cfh"]
+[ext_resource type="Script" uid="uid://bewichmg1ra8c" path="res://scenes/main/label_narration.gd" id="5_6q06x"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_hyk8p")
+
+[node name="AudioManager" parent="." instance=ExtResource("2_ow5a4")]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayerMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_k2fmo")
+autoplay = true
+
+[node name="AudioStreamPlayerViolinsPlucking" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_l3cfh")
+
+[node name="AudioStreamPlayerViolinsScreeching" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_l3cfh")
+
+[node name="ColorRectBlack" type="ColorRect" parent="."]
+unique_name_in_owner = true
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="ControlNarration" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelNarration" type="Label" parent="ControlNarration"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "As you have heard, South Fork, Iowa is gone. Nothing now but dust and ruin.
+
+Nothing has been recovered, except polaroids scattered throughout the wreckage.
+
+Their subjects appear benign, but they were left for a reason. We are missing something.
+
+We need someone with your skillset to examine them. Tell us what you see."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("5_6q06x")

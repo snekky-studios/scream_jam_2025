@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PictureData" load_steps=5 format=3 uid="uid://be3otgbcwi6n6"]
+
+[ext_resource type="Script" uid="uid://daqtg10hq66du" path="res://data/picture_data.gd" id="1_h3137"]
+[ext_resource type="Texture2D" uid="uid://si5sh1jxbtwk" path="res://assets/pictures/portrait/portait_128.png" id="2_hmlty"]
+[ext_resource type="Texture2D" uid="uid://cxavtn7quq4i7" path="res://assets/pictures/portrait/portait_256.png" id="3_g1gom"]
+[ext_resource type="Texture2D" uid="uid://dywwy6djwwc64" path="res://assets/pictures/portrait/portait_256_delay.png" id="4_txv8h"]
+
+[resource]
+script = ExtResource("1_h3137")
+last_picture = true
+texture_128 = ExtResource("2_hmlty")
+texture_256 = ExtResource("3_g1gom")
+texture_256_delay = ExtResource("4_txv8h")
+clue_coordinates = Vector2(0, 0)
+start_text = "This was found... Wait? What is this? That's my face..."
+end_text = "YOU ARE NEXT"
+metadata/_custom_type_script = "uid://daqtg10hq66du"

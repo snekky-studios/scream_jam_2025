@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PictureData" load_steps=5 format=3 uid="uid://kjajo1jium1b"]
+
+[ext_resource type="Script" uid="uid://daqtg10hq66du" path="res://data/picture_data.gd" id="1_dq56p"]
+[ext_resource type="Texture2D" uid="uid://fr22j4hra824" path="res://assets/pictures/lot/lot_128.png" id="2_12wge"]
+[ext_resource type="Texture2D" uid="uid://d2pdmlo444hi8" path="res://assets/pictures/lot/lot_256.png" id="3_82ki4"]
+[ext_resource type="Texture2D" uid="uid://cb6nt6f3gd8ml" path="res://assets/pictures/lot/lot_256_delay.png" id="4_1eaxe"]
+
+[resource]
+script = ExtResource("1_dq56p")
+texture_128 = ExtResource("2_12wge")
+texture_256 = ExtResource("3_82ki4")
+texture_256_delay = ExtResource("4_1eaxe")
+clue_coordinates = Vector2(161, 140)
+start_text = "A mundane, abandoned lot. We can't tell why this picture was taken."
+end_text = "A quadruped, crouching near the edge of the lot. Humanlike appendages."
+metadata/_custom_type_script = "uid://daqtg10hq66du"

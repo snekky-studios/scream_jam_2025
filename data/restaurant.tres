@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PictureData" load_steps=5 format=3 uid="uid://cluq7l7bkksib"]
+
+[ext_resource type="Script" uid="uid://daqtg10hq66du" path="res://data/picture_data.gd" id="1_74ayo"]
+[ext_resource type="Texture2D" uid="uid://dgvc3jr0krc0k" path="res://assets/pictures/restaurant/restaurant_128.png" id="2_jbtmg"]
+[ext_resource type="Texture2D" uid="uid://dt2stmidxi17n" path="res://assets/pictures/restaurant/restaurant_256.png" id="3_fxepv"]
+[ext_resource type="Texture2D" uid="uid://5fjwbd1mjyln" path="res://assets/pictures/restaurant/restaurant_256_delay.png" id="4_r0688"]
+
+[resource]
+script = ExtResource("1_74ayo")
+texture_128 = ExtResource("2_jbtmg")
+texture_256 = ExtResource("3_fxepv")
+texture_256_delay = ExtResource("4_r0688")
+clue_coordinates = Vector2(113, 113)
+start_text = "This picture was found in a putrid mass of rotting food."
+end_text = "A dark figure standing in the doorway. Its eyes are visible as pricks of light."
+metadata/_custom_type_script = "uid://daqtg10hq66du"

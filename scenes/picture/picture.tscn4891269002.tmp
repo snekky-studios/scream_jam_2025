@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://c80sedkaxfld6"]
+
+[ext_resource type="Texture2D" uid="uid://didxqgbn07o25" path="res://assets/pictures/park_256_8.png" id="1_hnc6x"]
+[ext_resource type="Script" uid="uid://btmpglijpqani" path="res://scenes/picture/picture.gd" id="1_sdwuo"]
+[ext_resource type="Texture2D" uid="uid://bvu6a8ivcr8jb" path="res://assets/pictures/park_128_8.png" id="2_053jb"]
+[ext_resource type="Shader" uid="uid://citku0wg37peu" path="res://scenes/picture/magnify.gdshader" id="3_aol1g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aol1g"]
+shader = ExtResource("3_aol1g")
+shader_parameter/enabled = false
+shader_parameter/x = 0.0
+shader_parameter/y = 0.0
+shader_parameter/radius = 0.1
+
+[sub_resource type="Animation" id="Animation_053jb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer256/SubViewport256/Sprite256:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sdwuo"]
+resource_name = "play_256"
+length = 0.2666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer256/SubViewport256/Sprite256:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_aol1g"]
+resource_name = "play_128"
+length = 0.2667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite128:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aol1g"]
+_data = {
+&"RESET": SubResource("Animation_053jb"),
+&"play_128": SubResource("Animation_aol1g"),
+&"play_256": SubResource("Animation_sdwuo")
+}
+
+[node name="Picture" type="Node2D"]
+script = ExtResource("1_sdwuo")
+
+[node name="Sprite128" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(64, 64)
+texture = ExtResource("2_053jb")
+centered = false
+vframes = 8
+frame = 7
+
+[node name="SubViewportContainer256" type="SubViewportContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_aol1g")
+offset_right = 256.0
+offset_bottom = 256.0
+
+[node name="SubViewport256" type="SubViewport" parent="SubViewportContainer256"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 0
+
+[node name="Sprite256" type="Sprite2D" parent="SubViewportContainer256/SubViewport256"]
+unique_name_in_owner = true
+texture = ExtResource("1_hnc6x")
+centered = false
+vframes = 8
+
+[node name="AnimationPlayer128" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_aol1g")
+}
+
+[node name="AnimationPlayer256" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_aol1g")
+}

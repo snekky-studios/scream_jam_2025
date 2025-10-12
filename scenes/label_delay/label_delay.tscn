@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqmqwoe520g4p"]
+
+[ext_resource type="Script" uid="uid://dj0jgpmhxufhq" path="res://scenes/label_delay/label_delay.gd" id="1_jobmj"]
+
+[node name="LabelDelay" type="Label"]
+custom_minimum_size = Vector2(250, 45)
+offset_right = 250.0
+offset_bottom = 45.0
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("1_jobmj")

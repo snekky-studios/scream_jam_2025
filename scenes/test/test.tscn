@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfsuiawb0b4c7"]
+
+[ext_resource type="Script" uid="uid://bgt3o2qu3swws" path="res://scenes/test/test.gd" id="1_da6vm"]
+[ext_resource type="AudioStream" uid="uid://cyfwj2uh7xu2g" path="res://assets/sounds/horror_background.mp3" id="2_da6vm"]
+[ext_resource type="AudioStream" uid="uid://dtqgoee3m5u11" path="res://assets/sounds/horror_violins_plucking.wav" id="3_st4qh"]
+
+[node name="Test" type="Node"]
+script = ExtResource("1_da6vm")
+
+[node name="AudioStreamPlayerMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_da6vm")
+autoplay = true
+
+[node name="AudioStreamPlayerViolinsPlucking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_st4qh")

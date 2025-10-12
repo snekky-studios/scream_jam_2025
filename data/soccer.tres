@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PictureData" load_steps=5 format=3 uid="uid://i7q8huoicb1"]
+
+[ext_resource type="Script" uid="uid://daqtg10hq66du" path="res://data/picture_data.gd" id="1_310tt"]
+[ext_resource type="Texture2D" uid="uid://deviqhsrckrw0" path="res://assets/pictures/soccer/soccer_128.png" id="2_yd5d4"]
+[ext_resource type="Texture2D" uid="uid://bcdepox07d66" path="res://assets/pictures/soccer/soccer_256.png" id="3_6ui1h"]
+[ext_resource type="Texture2D" uid="uid://bq2lbs65qjij" path="res://assets/pictures/soccer/soccer_256_delay.png" id="4_cmmkr"]
+
+[resource]
+script = ExtResource("1_310tt")
+texture_128 = ExtResource("2_yd5d4")
+texture_256 = ExtResource("3_6ui1h")
+texture_256_delay = ExtResource("4_cmmkr")
+clue_coordinates = Vector2(172, 153)
+start_text = " A children's soccer game. The field was gone by the time recovery teams entered the city."
+end_text = "A gnarled arm, reaching for a child. The rest of the body is out of frame."
+metadata/_custom_type_script = "uid://daqtg10hq66du"

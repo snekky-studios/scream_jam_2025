@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PictureData" load_steps=5 format=3 uid="uid://cg58cbprk7isj"]
+
+[ext_resource type="Script" uid="uid://daqtg10hq66du" path="res://data/picture_data.gd" id="1_h3kop"]
+[ext_resource type="Texture2D" uid="uid://dubs116se3bcw" path="res://assets/pictures/recess/recess_128.png" id="2_smxnv"]
+[ext_resource type="Texture2D" uid="uid://dnt7a157rr3kl" path="res://assets/pictures/recess/recess_256.png" id="3_0ausu"]
+[ext_resource type="Texture2D" uid="uid://ckxl4sm13iof5" path="res://assets/pictures/recess/recess_256_delay.png" id="4_0ausu"]
+
+[resource]
+script = ExtResource("1_h3kop")
+texture_128 = ExtResource("2_smxnv")
+texture_256 = ExtResource("3_0ausu")
+texture_256_delay = ExtResource("4_0ausu")
+clue_coordinates = Vector2(175, 107)
+start_text = "Recovered from the remains of a school. You could almost imagine nothing was wrong looking at this picture."
+end_text = "A humanoid, gazing from a window. Only the head is visible."
+metadata/_custom_type_script = "uid://daqtg10hq66du"

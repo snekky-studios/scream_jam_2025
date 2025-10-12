@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PictureData" load_steps=5 format=3 uid="uid://drjsh8a3uhajk"]
+
+[ext_resource type="Script" uid="uid://daqtg10hq66du" path="res://data/picture_data.gd" id="1_eum5g"]
+[ext_resource type="Texture2D" uid="uid://bnot5puscq1w8" path="res://assets/pictures/barn/barn_128.png" id="2_hgkyb"]
+[ext_resource type="Texture2D" uid="uid://b2q14xfk7th5q" path="res://assets/pictures/barn/barn_256.png" id="3_vye7l"]
+[ext_resource type="Texture2D" uid="uid://c8n5q2r6vtcs6" path="res://assets/pictures/barn/barn_256_delay.png" id="4_dvhj5"]
+
+[resource]
+script = ExtResource("1_eum5g")
+texture_128 = ExtResource("2_hgkyb")
+texture_256 = ExtResource("3_vye7l")
+texture_256_delay = ExtResource("4_dvhj5")
+clue_coordinates = Vector2(173, 76)
+start_text = "Recovered from a barn on the outskirts of town. Evidence suggests even animals were consumed by whatever took the town."
+end_text = "A flying creature, insectoid. Unclear from the picture whether in motion or stationary."
+metadata/_custom_type_script = "uid://daqtg10hq66du"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PictureData" load_steps=5 format=3 uid="uid://c2nwt2px45swr"]
+
+[ext_resource type="Script" uid="uid://daqtg10hq66du" path="res://data/picture_data.gd" id="1_h7te0"]
+[ext_resource type="Texture2D" uid="uid://dingipqop7bge" path="res://assets/pictures/church/church_128.png" id="2_4ly10"]
+[ext_resource type="Texture2D" uid="uid://dgft3bnkyxhfg" path="res://assets/pictures/church/church_256.png" id="3_hyonk"]
+[ext_resource type="Texture2D" uid="uid://clolq4s2fmn07" path="res://assets/pictures/church/church_256_delay.png" id="4_f57hb"]
+
+[resource]
+script = ExtResource("1_h7te0")
+texture_128 = ExtResource("2_4ly10")
+texture_256 = ExtResource("3_hyonk")
+texture_256_delay = ExtResource("4_f57hb")
+clue_coordinates = Vector2(162, 125)
+start_text = "Recovered beneath the broken rubble of a church, covered in blood."
+end_text = "Corpus tuum mihi est, your body belongs to me. Appears to be written in blood."
+metadata/_custom_type_script = "uid://daqtg10hq66du"

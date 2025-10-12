@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PictureData" load_steps=5 format=3 uid="uid://b76sw81yru0ys"]
+
+[ext_resource type="Script" uid="uid://daqtg10hq66du" path="res://data/picture_data.gd" id="1_0i835"]
+[ext_resource type="Texture2D" uid="uid://bvu6a8ivcr8jb" path="res://assets/pictures/park/park_128.png" id="2_v3nbg"]
+[ext_resource type="Texture2D" uid="uid://b07n0hg0hjaqb" path="res://assets/pictures/park/park_256.png" id="3_w83c3"]
+[ext_resource type="Texture2D" uid="uid://cxje0lb6dycq0" path="res://assets/pictures/park/park_256_delay.png" id="4_n0hl5"]
+
+[resource]
+script = ExtResource("1_0i835")
+texture_128 = ExtResource("2_v3nbg")
+texture_256 = ExtResource("3_w83c3")
+texture_256_delay = ExtResource("4_n0hl5")
+clue_coordinates = Vector2(71, 149)
+start_text = "Reports say the weather was beautiful that day. These people had no idea what was about to happen to them."
+end_text = "A hooded figure, kneeling near the path."
+metadata/_custom_type_script = "uid://daqtg10hq66du"
