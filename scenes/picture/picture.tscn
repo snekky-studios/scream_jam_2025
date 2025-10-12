@@ -1,13 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://c80sedkaxfld6"]
+[gd_scene load_steps=13 format=3 uid="uid://c80sedkaxfld6"]
 
 [ext_resource type="Script" uid="uid://btmpglijpqani" path="res://scenes/picture/picture.gd" id="1_sdwuo"]
 [ext_resource type="Texture2D" uid="uid://dv8rb44blpgno" path="res://assets/pictures/portrait/portait_128_delay.png" id="3_5naa8"]
-[ext_resource type="PackedScene" uid="uid://cqmqwoe520g4p" path="res://scenes/label_delay/label_delay.tscn" id="3_053jb"]
 [ext_resource type="Shader" uid="uid://citku0wg37peu" path="res://scenes/picture/magnify.gdshader" id="3_aol1g"]
-[ext_resource type="AudioStream" uid="uid://dwke3rt7md7r4" path="res://assets/sounds/horror_pluck.wav" id="4_aol1g"]
-[ext_resource type="AudioStream" uid="uid://bnp8d6slxxxka" path="res://assets/sounds/horror_string.wav" id="5_btga1"]
 [ext_resource type="Texture2D" uid="uid://si5sh1jxbtwk" path="res://assets/pictures/portrait/portait_128.png" id="5_sf7hp"]
-[ext_resource type="AudioStream" uid="uid://waphtiikdx7p" path="res://assets/sounds/horror_piano_c2_d2_e2_f2.wav" id="6_e584m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aol1g"]
 shader = ExtResource("3_aol1g")
@@ -159,63 +155,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_d6r4k")
 }
 
-[node name="MarginContainerStart" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(256, 48)
-offset_right = 256.0
-offset_bottom = 32.0
-
-[node name="LabelDelayStart" parent="MarginContainerStart" instance=ExtResource("3_053jb")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="MarginContainerEnd" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(256, 32)
-offset_top = 205.0
-offset_right = 256.0
-offset_bottom = 256.0
-
-[node name="LabelDelayEnd" parent="MarginContainerEnd" instance=ExtResource("3_053jb")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="MarginContainerFinal" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(256, 32)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 256.0
-offset_bottom = 256.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LabelDelayFinal" parent="MarginContainerFinal" instance=ExtResource("3_053jb")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "YOU ARE NEXT"
-horizontal_alignment = 1
-
 [node name="TimerTryFindClue" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
 
 [node name="TimerLastPicture" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 12.0
 one_shot = true
-
-[node name="AudioStreamPlayerPluck" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_aol1g")
-
-[node name="AudioStreamPlayerString" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("5_btga1")
-
-[node name="AudioStreamPlayerPiano" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("6_e584m")
 
 [connection signal="timeout" from="TimerTryFindClue" to="." method="_on_timer_try_find_clue_timeout"]
 [connection signal="timeout" from="TimerLastPicture" to="." method="_on_timer_last_picture_timeout"]

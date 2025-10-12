@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("1_8u0ux")
+last_picture = false
 texture_128 = ExtResource("2_3yhns")
 texture_256 = ExtResource("3_gcpr6")
 texture_256_delay = ExtResource("4_na2d8")

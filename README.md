@@ -13,7 +13,7 @@ Their subjects appear benign; we can't tell what their purpose is. We are missin
 We need someone with your skillset to examine them. Tell us what you see.
 
 ## After 3rd Picture
-Creatures and demons, hidden from plain view.
+Creatures, or demons, hidden from plain view.
 Where did they come from? How did they choose this place?
 
 

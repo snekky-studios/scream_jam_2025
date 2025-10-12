@@ -38,6 +38,12 @@ func _set_index_char_current(value : int) -> void:
 	visible_characters = index_char_current
 	return
 
+func reset() -> void:
+	index_char_current = 0
+	index_char_target = 0
+	text = ""
+	return
+
 #func _ready() -> void:
 	#audio_stream_player_piano = %AudioStreamPlayerPiano
 	#visible_characters = 0

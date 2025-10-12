@@ -1,6 +1,8 @@
 class_name Main
 extends Node
 
+signal enter
+
 const PICTURE : PackedScene = preload("res://scenes/picture/picture.tscn")
 const DATA_PARK : PictureData = preload("res://data/park.tres")
 const DATA_RECESS : PictureData = preload("res://data/recess.tres")
@@ -27,7 +29,7 @@ enum State
 	END
 }
 
-var state : State
+var state : State : set = _set_state
 
 var picture : Picture = null
 var pictures : Array[PictureData] = [
@@ -46,27 +48,37 @@ var index_picture : int = -1
 
 var audio_manager : AudioManager = null
 var color_rect_black : ColorRect = null
-var label_narration : LabelNarration = null
+var label_top : LabelDelay = null
+var label_bottom : LabelDelay = null
+var label_narration : LabelDelay = null
 
 func _ready() -> void:
 	audio_manager = %AudioManager
 	color_rect_black = %ColorRectBlack
+	label_top = %LabelTop
+	label_bottom = %LabelBottom
 	label_narration = %LabelNarration
-	
-	audio_manager.play("MUSIC")
 	
 	picture = PICTURE.instantiate()
 	add_child(picture)
 	
+	picture.waiting_to_spawn.connect(_on_picture_waiting_to_spawn)
+	picture.searching_clue_invisible.connect(_on_picture_searching_clue_invisible)
+	picture.searching_clue_visible.connect(_on_picture_searching_clue_visible)
+	picture.clue_seen.connect(_on_picture_clue_seen)
 	picture.clue_found.connect(_on_picture_clue_found)
 	picture.final_animation_begun.connect(_on_picture_final_animation_begun)
-	picture.final_animation_ended.connect(_on_picture_final_animation_ended)
 	
 	# shuffle the first ten pictures and make sure portrait is the last picture
 	pictures.shuffle()
 	pictures.push_back(DATA_PORTAIT)
 	
 	state = State.START
+	return
+
+func _unhandled_input(event: InputEvent) -> void:
+	if(event.is_action_pressed("ENTER")):
+		enter.emit()
 	return
 
 func show_picture() -> void:
@@ -79,6 +91,21 @@ func show_final_picture() -> void:
 	audio_manager.play("VIOLINS_PLUCKING")
 	picture.reset()
 	picture.data = pictures[index_picture]
+	label_top.text = pictures[index_picture].start_text
+	label_top.character_delay_time = 0.06
+	label_top.index_char_target = 18
+	await label_top.target_reached
+	await get_tree().create_timer(1.0).timeout
+	label_top.index_char_target = 24
+	await label_top.target_reached
+	await get_tree().create_timer(1.0).timeout
+	label_top.index_char_target = 38
+	await label_top.target_reached
+	await get_tree().create_timer(1.0).timeout
+	label_top.index_char_target = label_top.text.length()
+	await picture.final_animation_begun
+	audio_manager.play("VIOLINS_SCREECHING")
+	await picture.final_animation_ended
 	return
 
 func fade_to_black(time_to_black : float, post_delay : float) -> void:
@@ -93,20 +120,45 @@ func set_color_rect_alpha(value : float) -> void:
 	return
 
 func play_opening_narration() -> void:
-	
+	label_top.reset()
+	label_bottom.reset()
+	label_narration.index_char_current = 0
+	label_narration.character_delay_time = 0.03
+	label_narration.text = "As you have heard, South Fork, Iowa is gone. Nothing now but dust and ruin.\n\nNothing has been recovered, except polaroids scattered throughout the wreckage.\n\nTheir subjects appear benign; we can't tell what their purpose is. We are missing something.\n\nWe need someone with your skillset to examine them. Tell us what you see."
+	label_narration.index_char_target = 75
+	await label_narration.target_reached
+	await get_tree().create_timer(4.0).timeout
+	label_narration.index_char_target = 156
+	await label_narration.target_reached
+	await get_tree().create_timer(4.0).timeout
+	label_narration.index_char_target = 250
+	await label_narration.target_reached
+	await get_tree().create_timer(4.0).timeout
+	label_narration.index_char_target = label_narration.text.length()
+	await label_narration.target_reached
+	await enter
 	return
 
 func play_third_narration() -> void:
-	
+	label_top.reset()
+	label_bottom.reset()
+	print("third")
 	return
 
 func play_sixth_narration() -> void:
-	
+	label_top.reset()
+	label_bottom.reset()
+	print("sixth")
 	return
 
 func play_final_narration() -> void:
+	print("final")
+	label_top.reset()
+	label_bottom.reset()
+	label_narration.add_theme_font_size_override("font_size", 32)
+	label_narration.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label_narration.index_char_current = 0
 	label_narration.text = "YOU ARE NEXT"
-	label_narration.add_theme_font_size_override("m3x6", 32)
 	label_narration.character_delay_time = 0.0
 	label_narration.index_char_target = 3
 	audio_manager.play("PIANO")
@@ -130,7 +182,8 @@ func _set_state(value : State) -> void:
 func _on_state_changed() -> void:
 	match state:
 		State.START:
-			play_opening_narration()
+			audio_manager.play("MUSIC")
+			await play_opening_narration()
 			state = State.NEXT_PICTURE
 		State.NEXT_PICTURE:
 			index_picture += 1
@@ -146,32 +199,53 @@ func _on_state_changed() -> void:
 			label_narration.hide()
 			show_picture()
 		State.THIRD_NARRATION:
-			play_third_narration()
+			await play_third_narration()
 			state = State.SHOW_PICTURE
 		State.SIXTH_NARRATION:
-			play_sixth_narration()
+			await play_sixth_narration()
 			state = State.SHOW_PICTURE
 		State.FINAL_PICTURE:
-			show_final_picture()
+			await show_final_picture()
 			state = State.END
 		State.END:
-			play_final_narration()
-			fade_to_black(5.0, 2.0)
+			await play_final_narration()
+			await fade_to_black(5.0, 2.0)
 			get_tree().reload_current_scene()
 		_:
 			print("error: invalid state - ", state)
 			pass
 	return
 
+func _on_picture_waiting_to_spawn() -> void:
+	label_top.text = pictures[index_picture].start_text
+	label_top.index_char_target = label_top.text.length()
+	return
+
+func _on_picture_searching_clue_invisible() -> void:
+	
+	return
+
+func _on_picture_searching_clue_visible() -> void:
+	
+	return
+
+func _on_picture_clue_seen() -> void:
+	audio_manager.play("PIANO")
+	return
+
 func _on_picture_clue_found() -> void:
+	label_bottom.index_char_current = 0
+	label_bottom.text = pictures[index_picture].end_text
+	label_bottom.character_delay_time = 0.03
+	label_bottom.index_char_target = label_bottom.text.length()
+	await label_bottom.target_reached
+	await get_tree().create_timer(5.0).timeout
+	label_top.reset()
+	label_bottom.reset()
 	state = State.NEXT_PICTURE
 	return
 
 func _on_picture_final_animation_begun() -> void:
 	audio_manager.stop_all()
 	audio_manager.play("VIOLINS_SCREECHING")
-	return
-
-func _on_picture_final_animation_ended() -> void:
-	state = State.END
 	return
