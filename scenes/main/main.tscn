@@ -20,6 +20,7 @@ offset_bottom = 6.0
 [node name="LabelTop" parent="UI/MarginContainerTop" instance=ExtResource("3_l3cfh")]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="MarginContainerBottom" type="MarginContainer" parent="UI"]
 anchors_preset = 2
@@ -32,6 +33,7 @@ grow_vertical = 0
 [node name="LabelBottom" parent="UI/MarginContainerBottom" instance=ExtResource("3_l3cfh")]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="MarginContainerNarration" type="MarginContainer" parent="UI"]
 anchors_preset = 15
@@ -43,6 +45,7 @@ grow_vertical = 2
 [node name="LabelNarration" parent="UI/MarginContainerNarration" instance=ExtResource("3_l3cfh")]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="ColorRectBlack" type="ColorRect" parent="."]
 unique_name_in_owner = true

@@ -7,10 +7,11 @@
 
 [resource]
 script = ExtResource("1_h7te0")
+last_picture = false
 texture_128 = ExtResource("2_4ly10")
 texture_256 = ExtResource("3_hyonk")
 texture_256_delay = ExtResource("4_f57hb")
 clue_coordinates = Vector2(162, 125)
 start_text = "Recovered beneath the broken rubble of a church, covered in blood."
-end_text = "Corpus tuum mihi est, your body belongs to me. Appears to be written in blood."
+end_text = "Corpus tuum mihi est, your body belongs to me."
 metadata/_custom_type_script = "uid://daqtg10hq66du"

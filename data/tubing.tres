@@ -7,10 +7,11 @@
 
 [resource]
 script = ExtResource("1_gd1x1")
+last_picture = false
 texture_128 = ExtResource("2_8m7pq")
 texture_256 = ExtResource("3_c8wvj")
 texture_256_delay = ExtResource("4_hmqer")
 clue_coordinates = Vector2(151, 156)
-start_text = "This picture was damaged extensively by some fluid. Curiously, it does not appear to be water."
+start_text = "This picture was damaged extensively. It appears to depict tubers floating down a river."
 end_text = "A reptilian head. The body is partially submerged."
 metadata/_custom_type_script = "uid://daqtg10hq66du"

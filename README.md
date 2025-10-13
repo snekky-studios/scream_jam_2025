@@ -1,33 +1,35 @@
 # Scream Jam 2025
 
 ## Premise
-The residents of a town have been eradicated in a calamity. You are an iconoexorcist, brought in to examine pictures taken in the town in the hours before the calamity.
-Examine each photo and look for clues about what might have caused the calamity. Use a magnifying glass to look closely at small sections of the photos. 
+The residents of the town of South Fork, Iowa have been eradicated in a calamity. You are an iconoexorcist, brought in to examine pictures taken in the town in the hours before the calamity.
+Examine each photo and look for clues about what might have caused the calamity. Use a magnifying glass to look closely at the photos.
 
 ## Narration
 
 ## Opening
 As you have heard, South Fork, Iowa is gone. Nothing now but dust and ruin.
-Nothing has been recovered, except polaroids scattered throughout the wreckage.
+Nothing has been recovered, except photos scattered throughout the wreckage.
 Their subjects appear benign; we can't tell what their purpose is. We are missing something.
 We need someone with your skillset to examine them. Tell us what you see.
 
 ## After 3rd Picture
-Creatures, or demons, hidden from plain view.
-Where did they come from? How did they choose this place?
-
+These photos feel familiar somehow. It's hard to explain.
+Have I seen them before? I can almost remember this town, though I've never been there.
+I've stared so long, and yet I can't see the things you do. Maybe if I keep looking...
 
 ## After 6th Picture
-
+I feel different. The photos call to me.
+I can feel them, like a thought tickling the back of my brain.
+We must hurry. Something feels very wrong.
 
 ## Pictures
 
 ### Church
 start text: Recovered beneath the broken rubble of a church, covered in blood.
-end text: Corpus tuum mihi est, your body belongs to me. Appears to be written in blood.
+end text: Corpus tuum mihi est, your body belongs to me.
 
 ### Forest
-start text: Apologies for the picture quality. Even compared to the rest, this was degraded severely during the calamity.
+start text: Apologies for the picture quality. Even compared to the rest, this was degraded severely.
 end text: A makeshift gallows. A body of unknown age or gender hangs from it.
 
 ### Lot

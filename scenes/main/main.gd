@@ -18,6 +18,11 @@ const DATA_PORTAIT : PictureData = preload("res://data/portrait.tres")
 
 const NUM_PICTURES : int = 11
 
+const NARRATION_LINE_DELAY : float = 4.0
+const CHARACTER_DELAY_NORMAL : float = 0.03
+const CHARACTER_DELAY_SLOW : float = 0.06
+const CHARACTER_DELAY_FAST : float = 0.00
+
 enum State
 {
 	START,
@@ -84,6 +89,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func show_picture() -> void:
 	picture.reset()
 	picture.data = pictures[index_picture]
+	label_top.snap_in()
+	label_bottom.snap_in()
+	await picture.fade_in(1.0)
 	return
 
 func show_final_picture() -> void:
@@ -91,8 +99,11 @@ func show_final_picture() -> void:
 	audio_manager.play("VIOLINS_PLUCKING")
 	picture.reset()
 	picture.data = pictures[index_picture]
+	label_top.snap_in()
+	label_bottom.snap_in()
+	await picture.fade_in(1.0)
 	label_top.text = pictures[index_picture].start_text
-	label_top.character_delay_time = 0.06
+	label_top.character_delay_time = CHARACTER_DELAY_SLOW
 	label_top.index_char_target = 18
 	await label_top.target_reached
 	await get_tree().create_timer(1.0).timeout
@@ -122,18 +133,19 @@ func set_color_rect_alpha(value : float) -> void:
 func play_opening_narration() -> void:
 	label_top.reset()
 	label_bottom.reset()
+	label_narration.show()
 	label_narration.index_char_current = 0
-	label_narration.character_delay_time = 0.03
-	label_narration.text = "As you have heard, South Fork, Iowa is gone. Nothing now but dust and ruin.\n\nNothing has been recovered, except polaroids scattered throughout the wreckage.\n\nTheir subjects appear benign; we can't tell what their purpose is. We are missing something.\n\nWe need someone with your skillset to examine them. Tell us what you see."
+	label_narration.character_delay_time = CHARACTER_DELAY_NORMAL
+	label_narration.text = "As you have heard, South Fork, Iowa is gone. Nothing now but dust and ruin.\n\nNothing has been recovered, except photos scattered throughout the wreckage.\n\nTheir subjects appear benign; we can't tell what their purpose is. We are missing something.\n\nWe need someone with your skillset to examine them. Tell us what you see."
 	label_narration.index_char_target = 75
 	await label_narration.target_reached
-	await get_tree().create_timer(4.0).timeout
-	label_narration.index_char_target = 156
+	await get_tree().create_timer(NARRATION_LINE_DELAY).timeout
+	label_narration.index_char_target = 153
 	await label_narration.target_reached
-	await get_tree().create_timer(4.0).timeout
-	label_narration.index_char_target = 250
+	await get_tree().create_timer(NARRATION_LINE_DELAY).timeout
+	label_narration.index_char_target = 247
 	await label_narration.target_reached
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(NARRATION_LINE_DELAY).timeout
 	label_narration.index_char_target = label_narration.text.length()
 	await label_narration.target_reached
 	await enter
@@ -142,24 +154,48 @@ func play_opening_narration() -> void:
 func play_third_narration() -> void:
 	label_top.reset()
 	label_bottom.reset()
-	print("third")
+	label_narration.show()
+	label_narration.index_char_current = 0
+	label_narration.character_delay_time = CHARACTER_DELAY_NORMAL
+	label_narration.text = "These photos feel familiar somehow. It's hard to explain.\n\nHave I seen them before? I can almost remember this town, though I've never been there.\n\nI've stared so long, and yet I can't see the things you do. Maybe if I keep looking..."
+	label_narration.index_char_target = 57
+	await label_narration.target_reached
+	await get_tree().create_timer(NARRATION_LINE_DELAY).timeout
+	label_narration.index_char_target = 146
+	await label_narration.target_reached
+	await get_tree().create_timer(NARRATION_LINE_DELAY).timeout
+	label_narration.index_char_target = label_narration.text.length()
+	await label_narration.target_reached
+	await enter
 	return
 
 func play_sixth_narration() -> void:
 	label_top.reset()
 	label_bottom.reset()
-	print("sixth")
+	label_narration.show()
+	label_narration.index_char_current = 0
+	label_narration.character_delay_time = CHARACTER_DELAY_NORMAL
+	label_narration.text = "I feel different. The photos call to me.\n\nI can feel them, like a thought tickling the back of my brain.\n\nWe must hurry. Something feels very wrong."
+	label_narration.index_char_target = 40
+	await label_narration.target_reached
+	await get_tree().create_timer(NARRATION_LINE_DELAY).timeout
+	label_narration.index_char_target = 104
+	await label_narration.target_reached
+	await get_tree().create_timer(NARRATION_LINE_DELAY).timeout
+	label_narration.index_char_target = label_narration.text.length()
+	await label_narration.target_reached
+	await enter
 	return
 
 func play_final_narration() -> void:
-	print("final")
 	label_top.reset()
 	label_bottom.reset()
+	label_narration.show()
 	label_narration.add_theme_font_size_override("font_size", 32)
 	label_narration.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label_narration.index_char_current = 0
 	label_narration.text = "YOU ARE NEXT"
-	label_narration.character_delay_time = 0.0
+	label_narration.character_delay_time = CHARACTER_DELAY_FAST
 	label_narration.index_char_target = 3
 	audio_manager.play("PIANO")
 	await label_narration.target_reached
@@ -240,6 +276,9 @@ func _on_picture_clue_found() -> void:
 	label_bottom.index_char_target = label_bottom.text.length()
 	await label_bottom.target_reached
 	await get_tree().create_timer(5.0).timeout
+	label_top.fade_out(1.0)
+	label_bottom.fade_out(1.0)
+	await picture.fade_out(1.0)
 	label_top.reset()
 	label_bottom.reset()
 	state = State.NEXT_PICTURE

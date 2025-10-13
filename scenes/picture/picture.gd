@@ -27,10 +27,6 @@ enum State
 
 var state : State : set = _set_state
 @export var data : PictureData = null : set = _set_data
-var magnify_enabled : bool = true
-var try_enable_find_clue : bool = false
-var find_clue_enabled : bool = false
-var has_clue_been_seen : bool = false
 
 var sprite_128 : Sprite2D = null
 var sprite_256 : Sprite2D = null
@@ -54,7 +50,7 @@ func _ready() -> void:
 	animation_player_128.play("play_128")
 	animation_player_256.play("play_256")
 	
-	#timer_try_find_clue.wait_time = randi_range(4, 10)
+	timer_try_find_clue.wait_time = randi_range(4, 10)
 	return
 
 func _physics_process(_delta : float) -> void:
@@ -124,6 +120,23 @@ func _on_state_changed() -> void:
 
 func reset():
 	state = State.START
+	return
+
+func fade_in(time : float):
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_method(_set_modulate, 0.0, 1.0, time)
+	await tween.finished
+	return
+
+func fade_out(time : float):
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_method(_set_modulate, 1.0, 0.0, time)
+	await tween.finished
+	return
+
+func _set_modulate(value : float):
+	self.modulate = Color(1.0, 1.0, 1.0, value)
+	sprite_256.modulate = Color(1.0, 1.0, 1.0, value)
 	return
 
 func swap_256() -> void:

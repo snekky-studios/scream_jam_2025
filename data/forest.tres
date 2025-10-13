@@ -12,6 +12,6 @@ texture_128 = ExtResource("2_3yhns")
 texture_256 = ExtResource("3_gcpr6")
 texture_256_delay = ExtResource("4_na2d8")
 clue_coordinates = Vector2(170, 110)
-start_text = "Apologies for the picture quality. Even compared to the rest, this was degraded severely during the calamity."
+start_text = "Apologies for the picture quality. Even compared to the rest, this was degraded severely."
 end_text = "A makeshift gallows. A body of unknown age or gender hangs from it."
 metadata/_custom_type_script = "uid://daqtg10hq66du"

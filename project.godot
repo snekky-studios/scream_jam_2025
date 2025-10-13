@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="ScreamJam2025"
+config/name="Iconoexorcist"
+config/version="0.1.0"
 run/main_scene="uid://cc067o1siovev"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://assets/misc/icon.svg"
+boot_splash/use_filter=false
+boot_splash/image="uid://csvydby44ihel"
+config/icon="uid://cn7luydivhm3y"
+config/windows_native_icon="res://assets/art/icon.ico"
 
 [display]
 
