@@ -1,4 +1,6 @@
-# Scream Jam 2025
+# ICONOEXORCIST
+
+Made for Scream Jam 2025.
 
 ## Premise
 The residents of the town of South Fork, Iowa have been eradicated in a calamity. You are an iconoexorcist, brought in to examine pictures taken in the town in the hours before the calamity.
